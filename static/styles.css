@@ -1,0 +1,224 @@
+/* styles.css */
+
+/* Apply styles to the container element */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Style the heading */
+  h1 {
+    color: #333;
+    text-align: center;
+  }
+
+  h3 {
+    text-align: center;
+  }
+  h2 {
+    text-align: center;
+  }
+
+  /* Style the paragraph */
+  p {
+    color: #666;
+    text-align: center;
+  }
+  
+  /* Style the upload form */
+  form {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  /* Style the file input and submit button */
+  input[type="file"] {
+    margin-right: 10px;
+  }
+  
+  /* Style the link to the upload page */
+  a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.form1{
+  text-align: center;
+}
+
+.button1 {
+  background-color: #C7000B;
+  border: 1px solid #C7000B;
+  color: #fff;
+  margin-top: 40px;
+  text-align: center;
+
+} /* Red */
+
+.button2 {
+  background-color: #C7000B;
+  border: 1px solid #C7000B;
+  color: #fff;
+  margin-top: 40px;
+  text-align: center;
+
+} /* Red */
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: top 5px bottom 5px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.body {
+  background-color: #f3f5f6;
+}
+
+.container {
+  background-color: #ffffff;
+  width: 40%; /* Largeur de 80% de la largeur de son conteneur parent */
+  height: auto; /* Hauteur fixe de 400 pixels */
+  max-width: 1000px; /* Largeur maximale de 1000 pixels */
+  min-width: 300px; /* Largeur minimale de 300 pixels */
+  margin-top: 20px; /* Ajoute une marge de 20 pixels en haut de l'élément */
+  
+}
+
+.navbar-1 {
+  background-color: #333;
+}
+
+.navbar-2 {
+  background-color: #ffffff;
+  height: 70px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: top 5px bottom 5px;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 5px 16px;
+  margin: 5px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+
+.form1, .form2 {
+  
+  flex-direction: column;
+}
+input {
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.form1 input,
+.form2 input {
+    display: block;
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    margin: 10px auto;
+}
+
+/* Style the download button */
+
+.download {
+  margin-top: 10px; /* Adjust margin as needed */
+}
+
+.button-download {
+  margin-top: 10px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.button-return {
+  margin-top: 10px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Aligns elements with space between them */
+
+  
+}
+
+.welcome-msg {
+  margin-left: 1000px;/* Add some spacing between the message and link */
+}
+.logout-link{
+  margin-left: 5px; /* Add some spacing between the message and link */
+}
+
+
+.address-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.address-container label {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.address-container input {
+  flex: 2;
+}
+
+.flash-messages{
+  color: red;
+  background-color: white; /* Change the background color */
+  text-align: center; /* Center-align the text */
+  padding: 10px;
+}

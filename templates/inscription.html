@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Router Configuration Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<!-- Include jQuery (if not already included) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include your custom JavaScript file -->
+<script src="{{ url_for('static', filename='custom.js') }}"></script>
+
+<!-- Hidden input field to hold error message -->
+<input type="hidden" id="error-message" value="{{ error_message|default('') }}">
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var form1 = document.querySelector('.form1');
+        form1.style.display = 'block';
+    });
+
+    function showLoginForm() {
+        var form1 = document.querySelector('.form1');
+        var form2 = document.querySelector('.form2');
+        var link = document.querySelector('.hide-link');
+        
+        form1.style.display = 'none';
+        form2.style.display = 'block';
+        link.style.display = 'inline';
+    }
+    
+    function showCreateAccountForm() {
+        var form1 = document.querySelector('.form1');
+        var form2 = document.querySelector('.form2');
+        var link = document.querySelector('.hide-link');
+        
+        form1.style.display = 'block';
+        form2.style.display = 'none';
+        link.style.display = 'none';
+    }
+</script>
+
+
+
+
+
+
+</head>
+<body class="body">
+
+  <ul class="navbar navbar-1">
+    <li><a class="active" href="{{ url_for('login') }}">Home</a></li>
+  </ul>
+
+  <ul class="navbar navbar-2">
+    <li><img src="{{ url_for('static', filename='images/huawei_logo.png') }}" style="width: 150px; height: auto; margin-top: 0%;" ></li>
+  </ul>
+  
+  <div class="container">
+    <h2>Create an account</h2>
+    <form class="form2" method="post" action="{{ url_for('inscription') }}">
+      <input type="text" placeholder="Username" name="username"> <!-- on peut ajouter required pour obliger l'user d'ajouter ce champ  -->
+      <input type="email" placeholder="Email address" name="email" required>
+      <input type="password" placeholder="Password" name="password" required>
+
+    
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flash-messages">
+            {% for message in messages %}
+                <li class="flash-message">{{ message }}</li>
+            {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+      
+
+      <button type="submit" class="button button2">Create Account</button>
+  </form>
+    <p>Already have an account? <a href="{{ url_for('index') }}">Login here</a></p>
+</div>
+
+
+
+
+</body>
+</html>

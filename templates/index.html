@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Router Configuration Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+  <script>
+    document.getElementById('download-button').addEventListener('click', function() {
+        // Simulate a click on the hidden download link
+        document.getElementById('hidden-download-link').click();
+    });
+</script>
+
+  <script>
+
+    function handleOptionChange(select) {
+    const selectedOption = select.value;
+    const extraFileInput = document.getElementById("extra-file-input");
+
+    const gwAddress4G = document.getElementById("GW_address_4g");
+    const gwAddressManagement = document.getElementById("GW_address_management");
+
+    if (selectedOption === "4g_tdd_co_trans") {
+        extraFileInput.style.display = "block"; // Show the additional input fields
+        gwAddress4G.required = true;
+        gwAddressManagement.required = true;
+    } else {
+        extraFileInput.style.display = "none"; // Hide the additional input fields
+        gwAddress4G.required = false;
+        gwAddressManagement.required = false;
+    }
+}
+
+</script>
+
+<script>
+  function validateIPv4WithMask(input) {
+    const ipAddress = input.value.trim();
+    const octets = ipAddress.split('.');
+    
+    if (octets.length !== 4) {
+      handleValidationError(input, "Invalid IPv4 address");
+      return;
+    }
+
+    for (const octet of octets) {
+    const octetValue = parseInt(octet);
+    if (!(0 <= octetValue && octetValue <= 255)) {
+      handleValidationError(input, "Invalid IPv4 address");
+      return;
+    }
+  }
+
+    const last_octet = parseInt(octets[3]);
+    if (!(1 <= last_octet && last_octet <= 254)) {
+      handleValidationError(input, "Invalid host address");
+      return;
+    }
+  
+    clearValidationError(input);
+  }
+  
+  function handleValidationError(input, errorMessage) {
+    if (input.id === "GW_address_4g") {
+      document.getElementById("address-validation-error-4g").textContent = errorMessage;
+      document.getElementById("address-validation-error-management").textContent = "";
+    } else if (input.id === "GW_address_management") {
+      document.getElementById("address-validation-error-management").textContent = errorMessage;
+      document.getElementById("address-validation-error-4g").textContent = "";
+    }
+  }
+  
+  function clearValidationError(input) {
+    document.getElementById("address-validation-error-4g").textContent = "";
+    document.getElementById("address-validation-error-management").textContent = "";
+  }
+  </script>
+
+
+</head>
+<body class="body">
+
+  <ul class="navbar navbar-1">
+  <!-- <li><a class="active" href="#home">Home</a></li>--> 
+    <li class="flex-container">
+      <p class="welcome-msg">Welcome, {{ user.username }}!</p>
+      <p class="logout-link"><a href="{{ url_for('logout') }}">Logout</a></p>
+    </li>
+
+
+  </ul>
+
+  <ul class="navbar navbar-2">
+    <li><img src="{{ url_for('static', filename='images/huawei_logo.png') }}" style="width: 150px; height: auto; margin-top: 0%;" ></li>
+  </ul>
+  
+
+
+  <div class="container">
+    <h1>Router Configuration Generator</h1>
+      <form class="form" name="formulaire" id="upload-form" action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+   <!--     <center><label for="file-input"> <h3>Generate Router Configuration </h3></label></center> -->
+             <div align="center">
+            <div>
+              <h5>Select Configuration Type: </h5>
+              <!-- Utilisez un menu déroulant (select) pour sélectionner le type de configuration -->
+              <select id="generate-option" name="generate_option" onchange="handleOptionChange(this)">
+                  <option></option>
+                  <option value="default">New Site Config</option>
+                  <option value="4g_fdd">4G FDD Config</option>
+                  <option value="4g_tdd_trans">4G TDD Config (Trans dédié)</option>
+                  <option value="4g_tdd_co_trans">4G TDD Config (Co-trans)</option>
+              </select>
+            </div>
+
+                 <div>
+                     <div>
+                      <h5>Upload an Excel File   </h5><input type="file" id="file-input" name="file" accept=".xls">
+                     </div>
+
+                  <div id="extra-file-input" style="display: none;">
+                    <h5>Enter Addresses</h5>
+                    <div class="address-container">
+                      <label for="GW_address_4g"><h5>Gateway Address for 4G service:</h5></label>
+                      <input type="text" id="GW_address_4g" name="GW_address_4g" required oninput="validateIPv4WithMask(this)">
+                      <span id="address-validation-error-4g" style="color: red;"></span>
+                  </div>
+                  
+                  <div class="address-container">
+                      <label for="GW_address_management"><h5>Gateway Address for Management:</h5></label>
+                      <input type="text" id="GW_address_management" name="GW_address_management" required oninput="validateIPv4WithMask(this)">
+                      <span id="address-validation-error-management" style="color: red;"></span>
+                  </div>
+                  
+
+                </div>
+
+
+                </div>
+                 <div> 
+                     <div>
+                      <button type="submit" class="button button1">Generate Configuration</button>
+                     </div>
+                 </div>
+                </div>
+                
+      </form>
+
+   <!--    <div id="output-container">
+         Display generated configuration here 
+        <div>
+            {% if config_script_text %}
+            <h4>Generated Configuration:</h4>
+           <pre id="config-script">{{ config_script_text | safe }}</pre>
+            <a href="{{ download_link }}" id="download-link" class="button button-download">Download Configuration</a>
+            <h4>Test Text</h4>
+            {% endif %}
+
+
+
+        </div>
+    </div>
+-->
+
+<!--
+    <div id="output-container">
+       Display generated configuration here 
+      <div>
+          {% if config_script_text %}
+          <h4>Generated Configuration:</h4>
+          <pre id="config-script">{{ config_script_text | safe }}</pre>
+          <button id="download-button" class="button button-download">Download Configuration</button>
+          <h4>Test Text</h4>
+          <a href="{{ download_link }}" id="hidden-download-link" style="display: none;"></a>
+          {% endif %}
+      </div>
+  </div>
+-->
+
+
+
+  </div>
+
+  
+  <script src="script.js"></script>
+</body>
+</html>

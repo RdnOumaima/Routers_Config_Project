@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generated Configuration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="body">
+
+    <div>
+        {% if config_script_text %}
+        <h4>Generated Configuration:</h4>
+        <pre id="config-script">{{ config_script_text | safe }}</pre>
+        <a href="{{ download_link }}" id="download-link" class="button button-download">Download Configuration</a>
+        <a href="{{ url_for('welcome') }}" class="button button-return">Return</a>
+        {% endif %}
+    </div>
+
+
+
+
+
+</body>
+</html>

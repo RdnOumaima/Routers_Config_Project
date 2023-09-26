@@ -1,0 +1,11 @@
+# Import the function
+from generate_router_config_with_static_route import generate_router_config_with_static_route
+
+# Path to the existing configuration file
+existing_config_file = 'router_configuration.txt'
+
+# Call the function with the file path
+extracted_data = generate_router_config_with_static_route(existing_config_file)
+
+# Print the extracted data
+print(extracted_data)

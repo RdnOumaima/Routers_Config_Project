@@ -1,0 +1,337 @@
+
+            -------------
+            Router_name: Router_A
+            -------------
+
+            #
+            interface GIGAETHERNET0/0/0
+            description TO_Site_radio_A
+            undo shutdown
+            #
+            
+
+                interface GIGAETHERNET0/0/0.10
+                vlan-type dot1q 10
+                description 2G_Site_radio_A
+                ip binding vpn-instance vpn_name(2G)
+                ip address 192.168.1.2 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/0.11
+                vlan-type dot1q 11
+                description 3G_Site_radio_A
+                ip binding vpn-instance vpn_name(3G)
+                ip address 192.168.1.6 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/0.12
+                vlan-type dot1q 12
+                description Management_Site_radio_A
+                ip binding vpn-instance vpn_name(Management)
+                ip address 192.168.1.10 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/0.13
+                vlan-type dot1q 13
+                description 4G_Site_radio_A
+                ip binding vpn-instance vpn_name(4G)
+                ip address 192.168.1.14 255.255.255.252
+                #
+                
+            -------------
+            Router_name: Router_A
+            -------------
+
+            #
+            interface GIGAETHERNET0/0/1
+            description TO_Site_radio_B
+            undo shutdown
+            #
+            
+
+                interface GIGAETHERNET0/0/1.20
+                vlan-type dot1q 20
+                description 2G_Site_radio_B
+                ip binding vpn-instance vpn_name(2G)
+                ip address 192.168.2.2 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/1.21
+                vlan-type dot1q 21
+                description 3G_Site_radio_B
+                ip binding vpn-instance vpn_name(3G)
+                ip address 192.168.2.6 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/1.22
+                vlan-type dot1q 22
+                description Management_Site_radio_B
+                ip binding vpn-instance vpn_name(Management)
+                ip address 192.168.2.10 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/1.23
+                vlan-type dot1q 23
+                description 4G_Site_radio_B
+                ip binding vpn-instance vpn_name(4G)
+                ip address 192.168.2.14 255.255.255.252
+                #
+                
+            -------------
+            Router_name: Router_B
+            -------------
+
+            #
+            interface GIGAETHERNET0/0/2
+            description TO_Site_radio_C
+            undo shutdown
+            #
+            
+
+                interface GIGAETHERNET0/0/2.30
+                vlan-type dot1q 30
+                description 2G_Site_radio_C
+                ip binding vpn-instance vpn_name(2G)
+                ip address 192.168.3.2 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/2.31
+                vlan-type dot1q 31
+                description 3G_Site_radio_C
+                ip binding vpn-instance vpn_name(3G)
+                ip address 192.168.3.6 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/2.32
+                vlan-type dot1q 32
+                description Management_Site_radio_C
+                ip binding vpn-instance vpn_name(Management)
+                ip address 192.168.3.10 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/2.33
+                vlan-type dot1q 33
+                description 4G_Site_radio_C
+                ip binding vpn-instance vpn_name(4G)
+                ip address 192.168.3.14 255.255.255.252
+                #
+                
+            -------------
+            Router_name: Router_B
+            -------------
+
+            #
+            interface GIGAETHERNET0/0/1
+            description TO_Site_radio_D
+            undo shutdown
+            #
+            
+
+                interface GIGAETHERNET0/0/1.40
+                vlan-type dot1q 40
+                description 2G_Site_radio_D
+                ip binding vpn-instance vpn_name(2G)
+                ip address 192.168.4.2 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/1.41
+                vlan-type dot1q 41
+                description 3G_Site_radio_D
+                ip binding vpn-instance vpn_name(3G)
+                ip address 192.168.4.6 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/1.42
+                vlan-type dot1q 42
+                description Management_Site_radio_D
+                ip binding vpn-instance vpn_name(Management)
+                ip address 192.168.4.10 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/1.43
+                vlan-type dot1q 43
+                description 4G_Site_radio_D
+                ip binding vpn-instance vpn_name(4G)
+                ip address 192.168.4.14 255.255.255.252
+                #
+                
+            -------------
+            Router_name: Router_C
+            -------------
+
+            #
+            interface GIGAETHERNET0/0/0
+            description TO_Site_radio_E
+            undo shutdown
+            #
+            
+
+                interface GIGAETHERNET0/0/0.50
+                vlan-type dot1q 50
+                description 2G_Site_radio_E
+                ip binding vpn-instance vpn_name(2G)
+                ip address 192.168.5.2 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/0.51
+                vlan-type dot1q 51
+                description 3G_Site_radio_E
+                ip binding vpn-instance vpn_name(3G)
+                ip address 192.168.5.6 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/0.52
+                vlan-type dot1q 52
+                description Management_Site_radio_E
+                ip binding vpn-instance vpn_name(Management)
+                ip address 192.168.5.10 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/0.53
+                vlan-type dot1q 53
+                description 4G_Site_radio_E
+                ip binding vpn-instance vpn_name(4G)
+                ip address 192.168.5.14 255.255.255.252
+                #
+                
+            -------------
+            Router_name: Router_C
+            -------------
+
+            #
+            interface GIGAETHERNET0/0/1
+            description TO_Site_radio_F
+            undo shutdown
+            #
+            
+
+                interface GIGAETHERNET0/0/1.60
+                vlan-type dot1q 60
+                description 2G_Site_radio_F
+                ip binding vpn-instance vpn_name(2G)
+                ip address 192.168.6.2 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/1.61
+                vlan-type dot1q 61
+                description 3G_Site_radio_F
+                ip binding vpn-instance vpn_name(3G)
+                ip address 192.168.6.6 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/1.62
+                vlan-type dot1q 62
+                description Management_Site_radio_F
+                ip binding vpn-instance vpn_name(Management)
+                ip address 192.168.6.10 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/1.63
+                vlan-type dot1q 63
+                description 4G_Site_radio_F
+                ip binding vpn-instance vpn_name(4G)
+                ip address 192.168.6.14 255.255.255.252
+                #
+                
+            -------------
+            Router_name: Router_D
+            -------------
+
+            #
+            interface GIGAETHERNET0/0/2
+            description TO_Site_radio_G
+            undo shutdown
+            #
+            
+
+                interface GIGAETHERNET0/0/2.70
+                vlan-type dot1q 70
+                description 2G_Site_radio_G
+                ip binding vpn-instance vpn_name(2G)
+                ip address 192.168.7.2 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/2.71
+                vlan-type dot1q 71
+                description 3G_Site_radio_G
+                ip binding vpn-instance vpn_name(3G)
+                ip address 192.168.7.6 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/2.72
+                vlan-type dot1q 72
+                description Management_Site_radio_G
+                ip binding vpn-instance vpn_name(Management)
+                ip address 192.168.7.10 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/2.73
+                vlan-type dot1q 73
+                description 4G_Site_radio_G
+                ip binding vpn-instance vpn_name(4G)
+                ip address 192.168.7.14 255.255.255.252
+                #
+                
+            -------------
+            Router_name: Router_D
+            -------------
+
+            #
+            interface GIGAETHERNET0/0/1
+            description TO_Site_radio_H
+            undo shutdown
+            #
+            
+
+                interface GIGAETHERNET0/0/1.80
+                vlan-type dot1q 80
+                description 2G_Site_radio_H
+                ip binding vpn-instance vpn_name(2G)
+                ip address 192.168.8.2 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/1.81
+                vlan-type dot1q 81
+                description 3G_Site_radio_H
+                ip binding vpn-instance vpn_name(3G)
+                ip address 192.168.8.6 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/1.82
+                vlan-type dot1q 82
+                description Management_Site_radio_H
+                ip binding vpn-instance vpn_name(Management)
+                ip address 192.168.8.10 255.255.255.252
+                #
+                
+
+                interface GIGAETHERNET0/0/1.83
+                vlan-type dot1q 83
+                description 4G_Site_radio_H
+                ip binding vpn-instance vpn_name(4G)
+                ip address 192.168.8.14 255.255.255.252
+                #
+                
