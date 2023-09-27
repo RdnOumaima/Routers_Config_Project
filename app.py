@@ -173,7 +173,7 @@ def upload():
         response_text = f"Configuration saved to '{output_file}' file.\n\n<pre>{config_script_text}</pre>\n"
         print("Generated Configuration:\n", config_script_text)
 
-    # Render the upload.html template for GET requests  
+    # Render the upload.html template for GET requests  requests
     return render_template('generated_config.html', config_script_text=config_script_text, download_link=download_link)
 
 
